@@ -1,11 +1,22 @@
 package com.company;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        Database database = new Database();
+
+        try
+        {
+            database.getConnection();
+        } catch(SQLException a)
+        {
+
+        }
 
         Member member = new Member();
         member.login();

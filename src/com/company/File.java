@@ -7,8 +7,9 @@ public class File {
 
     private String filename;
     private java.io.File file;
-    
-    public File(String filename) throws FileNotFoundException {
+
+    public File(String filename) throws FileNotFoundException
+    {
         this.filename = filename;
         file = new java.io.File(filename.concat(".txt"));
     }

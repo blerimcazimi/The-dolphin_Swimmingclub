@@ -11,7 +11,7 @@ public class Read {
 
 
     private File fn = new File("MembersInfo.txt");
-    private Scanner scanner = new Scanner(new java.io.File(fn.workingDir.concat("MembersInfo.txt")));
+    private Scanner scanner = new Scanner(new java.io.File("MembersInfo.txt"));
 
     public Read() throws FileNotFoundException {
 
