@@ -4,19 +4,34 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import java.sql.*;
+
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-
-        Database database = new Database();
+    public static void main(String[] args) throws IOException
+    {
 
         try
         {
-            database.getConnection();
+            Database database = new Database();
+            Connection conn = database.getConnection();
+
+            Statement stmt = conn.createStatement() ;
+            String query = "select * from member" ;
+            ResultSet rs = stmt.executeQuery(query) ;
+
+            while(rs.next())
+            {
+
+                System.out.println(rs.getString("navn"));
+
+            }
+
         } catch(SQLException a)
         {
-
+            System.out.println("lol");
         }
+
 
         Member member = new Member();
         member.login();
