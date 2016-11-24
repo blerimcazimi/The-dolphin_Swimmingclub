@@ -3,19 +3,18 @@ package com.company;
 import java.io.*;
 
 
-public class FileClass {
+public class File {
 
     private String filename;
-    protected String workingDir = "/Users/Thomas/Desktop/DolphinClub/";
-    private File file;
-
-
-    public FileClass(String filename) throws FileNotFoundException {
+    private java.io.File file;
+    
+    public File(String filename) throws FileNotFoundException {
         this.filename = filename;
-        file = new File(workingDir.concat(filename.concat(".txt")));
+        file = new java.io.File(filename.concat(".txt"));
     }
 
-    public void writeToFile(String s) throws IOException {
+    public void writeToFile(String s) throws IOException
+    {
 
         if(!file.exists())
             file.createNewFile();

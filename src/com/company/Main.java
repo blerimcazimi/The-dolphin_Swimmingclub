@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Login login = new Login();
-        login.loginFuntion();
+        Member member = new Member();
+        member.login();
 
         Read r = new Read();
 
@@ -18,10 +18,6 @@ public class Main {
 
         if(oversigtAnswer.equalsIgnoreCase("Y"))
             r.returnfile();
-
-
-
-
 
     }
 }

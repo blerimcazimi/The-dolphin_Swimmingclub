@@ -1,7 +1,6 @@
 
         package com.company;
 
-        import java.io.File;
         import java.io.FileNotFoundException;
         import java.util.Scanner;
 
@@ -11,8 +10,8 @@
 public class Read {
 
 
-    private FileClass  fn = new FileClass("MembersInfo.txt");
-    private Scanner scanner = new Scanner(new File(fn.workingDir.concat("MembersInfo.txt")));
+    private File fn = new File("MembersInfo.txt");
+    private Scanner scanner = new Scanner(new java.io.File(fn.workingDir.concat("MembersInfo.txt")));
 
     public Read() throws FileNotFoundException {
 
