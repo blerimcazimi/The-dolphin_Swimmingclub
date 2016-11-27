@@ -13,6 +13,12 @@ public class Member
     private ArrayList<MembersInformation> membersInfo = new ArrayList<>();
     private Date date = new Date();
 
+
+    public void deleteMember()
+    {
+        //code for deleting a member.
+    }
+
     public void createMember() throws IOException
     {
 
@@ -120,6 +126,7 @@ public class Member
                 System.out.println("Tast 1 for at oprette nyt medlem");
                 System.out.println("Tast 2 for at se liste over alle medlemmer");
                 System.out.println("Tast 3 for at redigere et medlem");
+                System.out.println("Tast 4 for at slette et medlem");
 
                 int opret = Integer.parseInt(scanner.nextLine());
 
@@ -146,6 +153,12 @@ public class Member
                     case 3:
 
                         editMember();
+                        break;
+
+                    case 4:
+
+                        deleteMember();
+                        break;
 
                 }
 
