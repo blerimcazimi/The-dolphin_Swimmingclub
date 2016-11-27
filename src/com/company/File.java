@@ -18,7 +18,9 @@ public class File {
     {
 
         if(!file.exists())
+        {
             file.createNewFile();
+        }
 
         FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

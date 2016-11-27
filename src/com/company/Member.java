@@ -7,8 +7,8 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.util.Date;
 
-
-public class Member {
+public class Member
+{
 
     private ArrayList<MembersInformation> membersInfo = new ArrayList<>();
     private Date date = new Date();
@@ -37,6 +37,7 @@ public class Member {
             {
 
                 case 1:
+
                     membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", date));
                     break;
 
@@ -51,29 +52,49 @@ public class Member {
             String cont = keyboard.nextLine();
 
             if (cont.equalsIgnoreCase("N"))
+            {
                 break;
+            }
+
         }
+
 
         for (int i = 0; i < membersInfo.size(); i++) {
 
-            file.writeToFile("Medlems navn: " + membersInfo.get(i).getMemberName() + ".  Medlemmets alder: "
-                    + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Dato oprettet " + date + "\n \n");
-
+            file.writeToFile("Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
+                    + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Oprettet: " + date + "\n \n");
 
         }
+
     } // end of createMember
 
+
+    //get list of coaches.
     public void coach() throws FileNotFoundException {
 
         System.out.println("Liste over elitesvømmere:");
 
         Read r = new Read();
-        r.specificKeyword();
+        r.specificKeyword("Elitesvømmer");
+
+    }
+
+    //edit member
+    public void editMember() throws FileNotFoundException
+    {
+
+        System.out.println("Indtast navnet på det medlem du vil redigere i");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Read r = new Read();
+        r.specificKeyword(scanner.nextLine());
 
     }
 
 
-    public void loginFuntion() throws IOException {
+    //login to system
+    public void login() throws IOException {
 
         Read read = new Read();
 
@@ -90,7 +111,7 @@ public class Member {
 
             String password = scanner.nextLine();
 
-            //check login <3
+            //check login...
             if (email.equals("formand") && password.equals("formand")) {
 
                 System.out.println("Du er logget ind som formanden");
@@ -98,20 +119,23 @@ public class Member {
                 System.out.println("Du har følgende muligheder: ");
                 System.out.println("Tast 1 for at oprette nyt medlem");
                 System.out.println("Tast 2 for at se liste over alle medlemmer");
-
+                System.out.println("Tast 3 for at redigere et medlem");
 
                 int opret = Integer.parseInt(scanner.nextLine());
 
                 switch (opret) {
 
                     case 1:
+
                         createMember();
 
                         System.out.println("Vil du se liste over alle medlemmer (Y/N)?");
                         String ans = scanner.nextLine();
 
                         if (ans.equalsIgnoreCase("Y"))
+                        {
                             read.returnfile();
+                        }
 
                         break;
 
@@ -119,9 +143,11 @@ public class Member {
                         read.returnfile();
                         break;
 
+                    case 3:
+
+                        editMember();
+
                 }
-
-
 
                 break; //stops the while-loop
 
@@ -133,7 +159,8 @@ public class Member {
 
                 int whatToSee = Integer.parseInt(scanner.nextLine());
 
-                switch (whatToSee) {
+                switch (whatToSee)
+                {
 
                     case 1:
                         read.returnfile();
@@ -149,7 +176,8 @@ public class Member {
                 break; //stops the while-loop
 
 
-            } else if (email.equals("12") && password.equals("32")) {
+            } else if (email.equals("12") && password.equals("32"))
+            {
 
                 System.out.println("Du er logget ind som træner");
                 System.out.println();
@@ -159,18 +187,16 @@ public class Member {
                 String userAns = scanner.nextLine();
 
 
-                if (userAns.equalsIgnoreCase("1")) {
+                if (userAns.equalsIgnoreCase("1"))
+                {
                     coach();
-                } else if (userAns.equalsIgnoreCase("2")) {
+                } else if (userAns.equalsIgnoreCase("2"))
+                {
 
                     coach();
                     read.updateResults();
 
-
-
-
                 }
-
 
                 break; //stops the while-loop
 

@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by Thomas on 22-11-2016.
- */
+
 public class Read {
 
 
@@ -25,12 +23,13 @@ public class Read {
         }
     }
 
-    public void specificKeyword() {
+    public void specificKeyword(String keywordToFind) {
         //System.out.println("Indtast keyword");
 
         while (scanner.hasNext()){
             String keyword = scanner.nextLine();
-            if(keyword.contains("Elitesvømmer")){
+            if(keyword.contains(keywordToFind))
+            {
                 System.out.println(keyword);
                 System.out.println();
             }

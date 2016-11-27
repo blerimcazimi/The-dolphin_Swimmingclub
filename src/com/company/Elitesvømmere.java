@@ -1,8 +1,5 @@
 package com.company;
 
-/**
- * Created by blerimcazimi on 27/11/2016.
- */
 public class Elitesvømmere{
 
 
@@ -22,4 +19,5 @@ public class Elitesvømmere{
     public double getSwimmingTime() {
         return swimmingTime;
     }
+
 }

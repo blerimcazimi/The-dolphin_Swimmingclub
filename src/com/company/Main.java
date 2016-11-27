@@ -1,17 +1,13 @@
 package com.company;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Scanner;
-
-import java.sql.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
         Member member = new Member();
-        member.loginFuntion();
+        member.login();
 
         /*
 
