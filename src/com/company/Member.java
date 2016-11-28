@@ -35,8 +35,26 @@ public class Member
             System.out.print("Indtast alder på nye medlem: ");
             int memberAge = Integer.parseInt(keyboard.nextLine());
 
+            System.out.println();
+            System.out.println("Vælg medlemets fortrukne aktivitet");
+            System.out.println("Vælg 1: for aktivt medlemskab\n2 for passivt medlemskab");
+            String memberType = "";
+            int memberTypeSwitch = Integer.parseInt(keyboard.nextLine());
+            switch (memberTypeSwitch)
+            {
+
+                case 1:
+
+                    memberType = "Aktivt";
+                    break;
+
+                case 2:
+                    memberType = "Passiv";
+                    break;
+            }
+
             System.out.println("Vælg medlemskabstype: ");
-            System.out.println("Vælg 1: for standart medlemskab. 2 for elitesvømmer medlemskab");
+            System.out.println("Vælg 1: for standart medlemskab\n2 for elitesvømmer medlemskab");
             int Type = Integer.parseInt(keyboard.nextLine());
 
             switch (Type)
@@ -44,11 +62,11 @@ public class Member
 
                 case 1:
 
-                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", memberType, date));
                     break;
 
                 case 2:
-                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", memberType, date));
                     break;
             }
 
@@ -69,7 +87,7 @@ public class Member
         {
 
             file.writeToFile("Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                    + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Oprettet: " + date + "\n \n");
+                    + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfo.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
 
         }
 
