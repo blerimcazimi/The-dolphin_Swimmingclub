@@ -10,17 +10,20 @@ import java.util.Scanner;
 public class Read {
 
 
-
     private Scanner scanner = new Scanner(new File(("MembersInfo.txt")));
 
     public Read() throws FileNotFoundException {
 
     }
 
-    public void returnfile () {
-        while (scanner.hasNext()) {
+    public void returnfile ()
+    {
+
+        while (scanner.hasNext())
+        {
             System.out.println(scanner.nextLine());
         }
+
     }
 
     public void specificKeyword(String keywordToFind) {
@@ -36,8 +39,8 @@ public class Read {
         }
 
 
-
     }
+
     public void yearContains(){
 
         Scanner keyboard = new Scanner(System.in);
@@ -68,7 +71,8 @@ public class Read {
 
             String keyword = scanner.nextLine();
 
-            if (keyword.contains(userInput)) {
+            if (keyword.contains(userInput))
+            {
                 System.out.println("Indtast svømmeresultater på " + userInput);
                 double swimResults = key2.nextDouble();
 

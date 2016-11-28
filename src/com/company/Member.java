@@ -64,8 +64,9 @@ public class Member
 
         }
 
-
-        for (int i = 0; i < membersInfo.size(); i++) {
+        //Putting all the added members from our arraylist into the file.
+        for (int i = 0; i < membersInfo.size(); i++)
+        {
 
             file.writeToFile("Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
                     + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Oprettet: " + date + "\n \n");
@@ -76,7 +77,8 @@ public class Member
 
 
     //get list of coaches.
-    public void coach() throws FileNotFoundException {
+    public void coach() throws FileNotFoundException
+    {
 
         System.out.println("Liste over elitesvømmere:");
 
