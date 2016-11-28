@@ -10,7 +10,6 @@ public class File {
 
     public File(String filename) throws FileNotFoundException
     {
-        System.out.println("lol");
         this.filename = filename;
         file = new java.io.File(filename.concat(".txt"));
     }
