@@ -57,52 +57,54 @@ public class Read {
 
         }
 
-    }
-
-    public void updateResults() throws IOException {
+    } public void updateResults() throws IOException {
 
 
+        System.out.println("Skriv navnet på ham/hende du vil opdaterer svømmetider for");
 
-    System.out.println("Skriv navnet på ham/hende du vil opdaterer svømmetider for");
+        Scanner keyboard = new Scanner(System.in);
+        Scanner key2 = new Scanner(System.in);
+        String userInput = keyboard.nextLine();
 
-    Scanner keyboard = new Scanner(System.in);
-    Scanner key2 = new Scanner(System.in);
-    String userInput = keyboard.nextLine();
+        while (scanner.hasNext()) {
 
-    while (scanner.hasNext()) {
+            String keyword = scanner.nextLine();
 
-        String keyword = scanner.nextLine();
-
-        if (keyword.contains(userInput)) {
-            System.out.println("Indtast svømmeresultater på " + userInput);
-            swimResults = key2.nextDouble();
-        }
-
-        ArrayList<Elitesvømmere> elite = new ArrayList<>();
-        elite.add(new Elitesvømmere(userInput, swimResults));
-
-
-        PrintFile file = new PrintFile("Eliteswimmers");
-
-        for (int i = 0; i < elite.size(); i++) {
-            elite.get(i).setSwimmingTime(swimResults);
-            System.out.println();
-
-        }
+            if (keyword.contains(userInput))
+            {
+                System.out.println("Indtast svømmeresultater på " + userInput);
+                swimResults = key2.nextDouble();
 
 
 
-    for (int i = 0; i < elite.size(); i++) {
 
-        file.writeToFile(elite.get(i).getMemberName() + elite.get(i).getSwimmingTime());
+                ArrayList<Elitesvømmere> elite = new ArrayList<>();
+                elite.add(new Elitesvømmere(userInput, swimResults));
 
-    }
+
+                PrintFile file = new PrintFile("Eliteswimmers");
+
+                for (int i = 0; i < elite.size(); i++) {
+                    elite.get(i).setSwimmingTime(swimResults);
+                    file.writeToFile("" + elite.get(i).getSwimmingTime() + "\n");
+
+                }
+
+
+
+
+             //  defineTop5();
+
+
 
 
 
             }
 
         }
+
+    }
+
 
     public void defineTop5() throws FileNotFoundException {
 
