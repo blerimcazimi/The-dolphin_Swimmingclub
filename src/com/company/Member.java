@@ -22,7 +22,7 @@ public class Member
     public void createMember() throws IOException
     {
 
-        File file = new File("MembersInfo");
+        PrintFile file = new PrintFile("MembersInfo");
 
         Scanner keyboard = new Scanner(System.in);
         while (true)
@@ -233,13 +233,13 @@ public class Member
 
                 break; //stops the while-loop
 
-//            } else {
-//                System.out.println("Login fejl... prøv igen");
-//            }
+            } else {
+                System.out.println("Login fejl... prøv igen");
+           }
 
 
             }
 
         }
     }
-}
+
