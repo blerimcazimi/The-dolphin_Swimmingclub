@@ -10,9 +10,9 @@ public class Main {
 
         Member member = new Member();
 
-        member.getList();
+        //member.getList();
 
-        //member.login();
+        member.login();
 
 
     }
