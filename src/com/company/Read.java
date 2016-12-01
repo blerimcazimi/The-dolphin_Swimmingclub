@@ -7,6 +7,7 @@ public class Read {
 
 
     private Scanner scanner = new Scanner(new FileReader("MembersInfo.txt"));
+    private Scanner scanner2 = new Scanner(new FileReader("Eliteswimmers.txt"));
     private double swimResults;
 
     public Read() throws FileNotFoundException
@@ -22,6 +23,13 @@ public class Read {
             System.out.println(scanner.nextLine());
         }
 
+    }
+
+    public void returnEliteSwimmers(){
+
+        while(scanner2.hasNext()) {
+            System.out.println(scanner2.nextLine());
+        }
     }
 
     public String specificKeyword(String keywordToFind)
@@ -81,9 +89,9 @@ public class Read {
 
 
 
-
-                ArrayList<Elitesvømmere> elite = new ArrayList<>();
-                elite.add(new Elitesvømmere(userInput, swimResults));
+//
+//                ArrayList<Elitesvømmere> elite = new ArrayList<>();
+//                elite.add(new Elitesvømmere(userInput, swimResults));
 
             }
 

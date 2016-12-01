@@ -7,10 +7,11 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.util.Date;
 
-public class Member
+public class  Member
 {
 
     private ArrayList<MembersInformation> membersInfo = new ArrayList<>();
+    private ArrayList<EliteSwimmers> membersInfoElite = new ArrayList<>();
     private Date date = new Date();
 
 
@@ -23,6 +24,7 @@ public class Member
     {
 
         File file = new File("MembersInfo");
+        int Type;
 
         Scanner keyboard = new Scanner(System.in);
         while (true)
@@ -58,7 +60,8 @@ public class Member
 
             System.out.println("Vælg medlemskabstype: ");
             System.out.println("Vælg 1: for standart medlemskab\n2 for elitesvømmer medlemskab");
-            int Type = Integer.parseInt(keyboard.nextLine());
+            Type = Integer.parseInt(keyboard.nextLine());
+            double test = 0.0;
 
             switch (Type)
             {
@@ -69,10 +72,40 @@ public class Member
                     break;
 
                 case 2:
-                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", "18", cpr, date));
+                    membersInfoElite.add(new EliteSwimmers(membersName, memberAge, "Elitesvømmer", "18", cpr, date, 0.0));
                     break;
             }
 
+
+
+        //Putting all the added members from our arraylist into the file.
+
+        if(Type==1) {
+
+            for (int i = 0; i < membersInfo.size(); i++) {
+
+                file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
+                        + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfo.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
+
+
+            }
+
+        }
+
+        else if(Type ==2) {
+
+            File eliteSwimmerFile = new File("Eliteswimmers");
+
+            for (int i = 0; i < membersInfo.size(); i++) {
+
+                eliteSwimmerFile.writeToFile("CPR: " + membersInfoElite.get(i).getMemberCpr() + " Navn: " + membersInfoElite.get(i).getMemberName() + ".  Alder: "
+                        + membersInfoElite.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfoElite.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfoElite.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
+
+
+            }
+
+
+        }
 
             System.out.println("Vil du tilføje et nyt medlem (Y/N)?");
 
@@ -82,15 +115,6 @@ public class Member
             {
                 break;
             }
-
-        }
-
-        //Putting all the added members from our arraylist into the file.
-        for (int i = 0; i < membersInfo.size(); i++)
-        {
-
-            file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                    + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfo.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
 
         }
 
@@ -105,6 +129,8 @@ public class Member
 
         Read r = new Read();
         r.specificKeyword("Elitesvømmer");
+
+
 
     }
 
@@ -194,6 +220,10 @@ public class Member
 
     }
 
+    public void top5swimmers(){
+
+    }
+
 
     //login to system
     public void login() throws IOException {
@@ -240,6 +270,8 @@ public class Member
                         if (ans.equalsIgnoreCase("Y"))
                         {
                             read.returnfile();
+                            read.returnEliteSwimmers();
+
                         }
 
                         break;
@@ -247,6 +279,7 @@ public class Member
                     case 2:
 
                         read.returnfile();
+                        read.returnEliteSwimmers();
                         break;
 
                     case 3:

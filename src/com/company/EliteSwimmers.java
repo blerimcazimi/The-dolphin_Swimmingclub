@@ -12,13 +12,13 @@ public class EliteSwimmers extends  MembersInformation{
 
     public EliteSwimmers(String name, int age, String type, String membershipAc, String cpr, Date d, double swimresult) {
         super(name, age, type, membershipAc, cpr, d);
-        Swimresult = swimresult;
+        this.Swimresult = swimresult;
     }
 
     public double getSwimresult() {
         return Swimresult;
     }
 
-    double Swimresult;
+    private double Swimresult;
 
 }
