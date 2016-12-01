@@ -1,7 +1,7 @@
 package com.company;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import java.io.FileNotFoundException;
@@ -74,6 +74,49 @@ public class Member
     public void deleteMember()
     {
         //code for deleting a member.
+
+        System.out.println("Slet et medlem ved at indtaste cpr nr.");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Read r = new Read();
+
+        String slet = scanner.nextLine();
+        String delete = r.specificKeyword(slet);
+
+        boolean runSearch = true;
+        if(delete.equals(""))
+        {
+            System.out.println("Søgningen gav ikke nogen resultater");
+            runSearch = false;
+        } else {
+
+            System.out.println("Det ønskede medlem blev fundet i datatbasen:");
+            System.out.println(delete);
+
+        }
+
+        File file = new File("MembersInfo");
+
+        while(runSearch){
+            System.out.println("Er du sikker på nat du vil slette dette medlem?");
+            System.out.println("Tast 'ja' eller 'nej'");
+
+            if(scanner.next().equals("nej")){
+                break;
+            }else if(scanner.next().equals("ja")){
+
+
+                file.replaceWith(delete, " ", slet);
+
+                System.out.println("Medlem slettet");
+                break;
+            }
+
+        }
+
+
+
     }
 
     public void createMember() throws IOException
