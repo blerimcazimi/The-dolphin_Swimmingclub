@@ -1,8 +1,8 @@
 package com.company;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -71,7 +71,7 @@ public class Member
 
     }
 
-    public void deleteMember()
+    public void deleteMember() throws FileNotFoundException
     {
         //code for deleting a member.
 
