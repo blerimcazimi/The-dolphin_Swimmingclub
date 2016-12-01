@@ -26,18 +26,22 @@ public class Read {
 
     }
 
-    public void specificKeyword(String keywordToFind) {
+    public String specificKeyword(String keywordToFind)
+    {
         //System.out.println("Indtast keyword");
 
-        while (scanner.hasNext()){
+        while (scanner.hasNext())
+        {
             String keyword = scanner.nextLine();
             if(keyword.contains(keywordToFind))
             {
-                System.out.println(keyword);
-                System.out.println();
+                //System.out.println("found:");
+                //System.out.println(keyword);
+                return keyword;
             }
         }
 
+        return "";
 
     }
 
@@ -60,7 +64,6 @@ public class Read {
 
     } public void updateResults() throws IOException {
 
-
         System.out.println("Skriv navnet på ham/hende du vil opdaterer svømmetider for");
 
         Scanner keyboard = new Scanner(System.in);
@@ -73,12 +76,12 @@ public class Read {
 
             if (keyword.contains(userInput))
             {
+
                 System.out.println("Indtast svømmeresultater på " + userInput);
                 double swimResults = key2.nextDouble();
 
                 ArrayList<Elitesvømmere> elite = new ArrayList<>();
                 elite.add(new Elitesvømmere(userInput, swimResults));
-
 
             }
 

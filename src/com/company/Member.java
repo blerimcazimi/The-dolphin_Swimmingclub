@@ -35,6 +35,9 @@ public class Member
             System.out.print("Indtast alder på nye medlem: ");
             int memberAge = Integer.parseInt(keyboard.nextLine());
 
+            System.out.println("Indtast CPR-nr på medlemm:");
+            String membersCpr = keyboard.nextLine();
+
             System.out.println("Vælg medlemskabstype: ");
             System.out.println("Vælg 1: for standart medlemskab. 2 for elitesvømmer medlemskab");
             int Type = Integer.parseInt(keyboard.nextLine());
@@ -44,11 +47,11 @@ public class Member
 
                 case 1:
 
-                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, membersCpr, "Standard medlemskab", date));
                     break;
 
                 case 2:
-                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, membersCpr, "Elitesvømmer", date));
                     break;
             }
 
@@ -68,7 +71,7 @@ public class Member
         for (int i = 0; i < membersInfo.size(); i++)
         {
 
-            file.writeToFile("Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
+            file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
                     + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Oprettet: " + date + "\n \n");
 
         }
@@ -91,12 +94,96 @@ public class Member
     public void editMember() throws FileNotFoundException
     {
 
-        System.out.println("Indtast navnet på det medlem du vil redigere i");
+        File f = new File("MembersInfo.txt");
+
+        ArrayList newLines = new ArrayList<String>();
+
+
+        //Read read = new Read();
+
+        //System.out.println("Iterate through file:");
+
+       // read.returnfile();
+
+        System.out.println("Indtast CPR-nr på det medlem du vil redigere i");
 
         Scanner scanner = new Scanner(System.in);
 
         Read r = new Read();
-        r.specificKeyword(scanner.nextLine());
+
+        String cpr = scanner.nextLine();
+        String found = r.specificKeyword(cpr);
+
+        boolean runSearch = true;
+        if(found.equals(""))
+        {
+            System.out.println("Ingen resultater fundet ved søgningen...");
+            runSearch = false;
+        } else {
+
+            System.out.println("Medlem fundet baseret på din søgning:");
+            System.out.println(found);
+
+        }
+
+        //keep looping until it breaks.
+        File file = new File("membersInfo");
+
+        while(runSearch)
+        {
+            System.out.println("Vil du ændre medlemmets navn?");
+            System.out.println("1 for ja, og 2 for nej");
+
+            if(scanner.next().equals("1"))
+            {
+                System.out.println("Indtast navn...");
+
+
+                String[] getName = found.split("Navn: ");
+                getName = getName[1].split("Alder:"); //now we can output name by getName[0]...
+
+                file.replaceWith(getName[0],scanner.next() + " ", cpr);
+
+            }
+
+            System.out.println("Vil du ændre medlemmets alder?");
+            System.out.println("1 for ja, og 2 for nej");
+
+            if(scanner.next().equals("1"))
+            {
+
+                System.out.println("Indtast alder...");
+
+                String[] getOld = found.split("Alder: ");
+                getOld = getOld[1].split("Medlemstype"); //now we can output old by getOld[0]...
+
+                file.replaceWith(getOld[0], scanner.next() + " år ", cpr);
+
+
+            }
+
+            System.out.println("Vil du ændre medlemmets CPR nr?");
+            System.out.println("1 for ja, og 2 for nej");
+
+            if(scanner.next().equals("1"))
+            {
+
+                System.out.println("Indtast det nye CPR...");
+
+                String[] getCpr = found.split("CPR: ");
+                getCpr = getCpr[1].split("Navn:"); //now we can output old by getOld[0]...
+
+                file.replaceWith(getCpr[0], scanner.next() + " ", cpr);
+
+            }
+
+            //output...
+            System.out.println("De indtastede ændringer er gemt for medlemmet.");
+
+            break;
+
+        }
+
 
     }
 
@@ -108,7 +195,8 @@ public class Member
 
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (true)
+        {
 
             System.out.println("Login med dine oplysninger");
             System.out.println("Indtast email");
@@ -120,7 +208,8 @@ public class Member
             String password = scanner.nextLine();
 
             //check login...
-            if (email.equals("formand") && password.equals("formand")) {
+            if (email.equals("formand") && password.equals("formand"))
+             {
 
                 System.out.println("Du er logget ind som formanden");
 
@@ -149,6 +238,7 @@ public class Member
                         break;
 
                     case 2:
+
                         read.returnfile();
                         break;
 
@@ -166,7 +256,8 @@ public class Member
 
                 break; //stops the while-loop
 
-            } else if (email.equals("123") && password.equals("321")) {
+            } else if (email.equals("123") && password.equals("321"))
+            {
 
                 System.out.println("du er kasser");
                 System.out.println("Tryk 1 for at se liste over alle medlemmer");
