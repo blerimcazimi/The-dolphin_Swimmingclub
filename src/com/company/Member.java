@@ -1,7 +1,7 @@
 package com.company;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 import java.util.Scanner;
 
 import java.io.FileNotFoundException;
@@ -13,6 +13,63 @@ public class Member
     private ArrayList<MembersInformation> membersInfo = new ArrayList<>();
     private Date date = new Date();
 
+
+    public void getList()
+    {
+
+        try
+        {
+
+            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+
+            String lines = ""; //holds the lines of file.
+
+            //loop through all lines.
+            String line;
+
+            ArrayList<Integer> lister = new ArrayList<Integer>();
+
+            while ((line = br.readLine()) != null)
+            {
+
+                String[] getOld = line.split("Alder: ");
+                getOld = getOld[1].split(" år"); //now we can output old by getOld[0]...
+
+                int getOlds = Integer.parseInt(getOld[0]);
+
+                if(18 > getOlds)
+                {
+                    //System.out.println("1000 kr");
+                    lister.add(1000);
+                } else if(getOlds >= 18 && 60 > getOlds)
+                {
+                    //System.out.println("1600 kr");
+                    lister.add(1600);
+                } else {
+                    //System.out.println("1200 kr");
+                    lister.add(1200);
+                }
+
+                //System.out.println(line);
+
+            }
+
+
+            Collections.sort(lister);
+
+            for(int i = 0; lister.size() > i; i++)
+            {
+                System.out.println(lister.get(i));
+            }
+
+
+        } catch(IOException Exception)
+        {
+            System.out.println("Something went wrong, when we tried to replace.");
+        }
+
+
+    }
 
     public void deleteMember()
     {
