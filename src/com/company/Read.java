@@ -1,16 +1,15 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.*;
 
 
 public class Read {
 
 
     private Scanner scanner = new Scanner(new File(("MembersInfo.txt")));
+    private double swimResults;
 
     public Read() throws FileNotFoundException {
 
@@ -64,6 +63,7 @@ public class Read {
 
     } public void updateResults() throws IOException {
 
+
         System.out.println("Skriv navnet på ham/hende du vil opdaterer svømmetider for");
 
         Scanner keyboard = new Scanner(System.in);
@@ -78,15 +78,50 @@ public class Read {
             {
 
                 System.out.println("Indtast svømmeresultater på " + userInput);
-                double swimResults = key2.nextDouble();
+                swimResults = key2.nextDouble();
+
+
+
 
                 ArrayList<Elitesvømmere> elite = new ArrayList<>();
                 elite.add(new Elitesvømmere(userInput, swimResults));
 
             }
 
+
+
+
+             //  defineTop5();
+
+
+
+
+
+            }
+
         }
 
     }
+
+
+    public void defineTop5() throws FileNotFoundException {
+
+        Scanner top5 = new Scanner(new File("Eliteswimmers.txt"));
+
+        System.out.println("Listen over top 5: " + "\n");
+
+     while (top5.hasNext()) {
+
+         ArrayList<String> lines = new ArrayList<>();
+         String line = top5.nextLine();
+         lines.add(line);
+         Collections.sort(lines);
+         System.out.println(lines);
+
+     }
+
+
+    }
+
 
 }

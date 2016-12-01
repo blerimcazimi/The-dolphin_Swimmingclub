@@ -9,15 +9,15 @@ public class MembersInformation {
     private String memberName;
     private int memeberAge;
     private Date date;
+    private String membershipActivity;
     private String membershipType;
-    private String membersCpr;
 
-    public MembersInformation(String name, int age, String membersCpr, String type, Date d)
+    public MembersInformation(String name, int age, String type, String membershipAc, Date d)
     {
         this.memberName = name;
         this.memeberAge = age;
         this.membershipType = type;
-        this.membersCpr = membersCpr;
+        this.membershipActivity = membershipAc;
         this.date = d;
     }
 

@@ -5,6 +5,8 @@ public class Elitesvømmere{
 
 
     private double swimmingTime;
+
+
     private String memberName;
 
     public Elitesvømmere(String name, double records) {
@@ -18,6 +20,10 @@ public class Elitesvømmere{
 
     public double getSwimmingTime() {
         return swimmingTime;
+    }
+
+    public String getMemberName() {
+        return memberName;
     }
 
 }
