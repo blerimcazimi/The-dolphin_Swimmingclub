@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.*;
 
-
 public class PrintFile {
 
     private String filename;
@@ -11,8 +10,9 @@ public class PrintFile {
     public PrintFile(String filename) throws FileNotFoundException
     {
         this.filename = filename;
-        file = new java.io.File(filename.concat(".txt"));
+        //file = new java.io.File(filename.concat(".txt"));
     }
+/*
 
     public void writeToFile(String s) throws IOException
     {
@@ -63,5 +63,6 @@ public class PrintFile {
         }
 
     }
+*/
 
 }

@@ -1,17 +1,16 @@
 package com.company;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
-
 
 public class Read {
 
 
-    private Scanner scanner = new Scanner(new File(("MembersInfo.txt")));
+    private Scanner scanner = new Scanner(new FileReader("MembersInfo.txt"));
     private double swimResults;
 
-    public Read() throws FileNotFoundException {
+    public Read() throws FileNotFoundException
+    {
 
     }
 
@@ -101,11 +100,12 @@ public class Read {
 
         }
 
-    }
+
 
 
     public void defineTop5() throws FileNotFoundException {
 
+        /*
         Scanner top5 = new Scanner(new File("Eliteswimmers.txt"));
 
         System.out.println("Listen over top 5: " + "\n");
@@ -118,7 +118,7 @@ public class Read {
          Collections.sort(lines);
          System.out.println(lines);
 
-     }
+     }*/
 
 
     }

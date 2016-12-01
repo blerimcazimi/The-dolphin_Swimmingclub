@@ -35,6 +35,9 @@ public class Member
             System.out.print("Indtast alder på nye medlem: ");
             int memberAge = Integer.parseInt(keyboard.nextLine());
 
+            System.out.print("Indtast CPR nummer: ");
+            String cpr = keyboard.nextLine();
+
             System.out.println();
             System.out.println("Vælg medlemets fortrukne aktivitet");
             System.out.println("Vælg 1: for aktivt medlemskab\n2 for passivt medlemskab");
@@ -62,11 +65,11 @@ public class Member
 
                 case 1:
 
-                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", memberType, date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", cpr, memberType, date));
                     break;
 
                 case 2:
-                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", memberType, date));
+                    membersInfo.add(new MembersInformation(membersName, memberAge, "Elitesvømmer", "18", cpr, date));
                     break;
             }
 
@@ -86,7 +89,7 @@ public class Member
         for (int i = 0; i < membersInfo.size(); i++)
         {
 
-            file.writeToFile("Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
+            file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
                     + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfo.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
 
         }
@@ -108,17 +111,6 @@ public class Member
     //edit member
     public void editMember() throws FileNotFoundException
     {
-
-        File f = new File("MembersInfo.txt");
-
-        ArrayList newLines = new ArrayList<String>();
-
-
-        //Read read = new Read();
-
-        //System.out.println("Iterate through file:");
-
-       // read.returnfile();
 
         System.out.println("Indtast CPR-nr på det medlem du vil redigere i");
 
@@ -330,4 +322,4 @@ public class Member
 
         }
     }
-}
+

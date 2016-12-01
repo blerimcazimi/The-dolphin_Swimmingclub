@@ -2,13 +2,10 @@ package com.company;
 
 import java.io.*;
 
-
 public class File {
 
     private String filename;
     private java.io.File file;
-
-
 
     public File(String filename) throws FileNotFoundException
     {
