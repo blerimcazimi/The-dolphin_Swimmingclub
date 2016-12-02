@@ -6,43 +6,43 @@ import java.util.*;
 public class Read {
 
 
-    private Scanner scanner = new Scanner(new FileReader("MembersInfo.txt"));
-    private Scanner scanner2 = new Scanner(new FileReader("Eliteswimmers.txt"));
-    private double swimResults;
 
-    public Read() throws FileNotFoundException
-    {
 
-    }
+    public void returnfile (String s) throws FileNotFoundException {
 
-    public void returnfile ()
-    {
+        Scanner scanner = new Scanner(new FileReader(s));
 
         while (scanner.hasNext())
         {
             System.out.println(scanner.nextLine());
         }
 
+
     }
 
-    public void returnEliteSwimmers(){
+    public String returnTop5file(String s) throws FileNotFoundException {
 
-        while(scanner2.hasNext()) {
-            System.out.println(scanner2.nextLine());
+        Scanner scanner = new Scanner(new FileReader(s));
+
+        while (scanner.hasNext())
+        {
+          return scanner.nextLine();
         }
+
+return "";
     }
 
-    public String specificKeyword(String keywordToFind)
-    {
-        //System.out.println("Indtast keyword");
+
+    public String specificKeyword(String keywordToFind, String fileName) throws FileNotFoundException {
+
+        Scanner scanner = new Scanner(new FileReader(fileName));
 
         while (scanner.hasNext())
         {
             String keyword = scanner.nextLine();
             if(keyword.contains(keywordToFind))
             {
-                //System.out.println("found:");
-                //System.out.println(keyword);
+
                 return keyword;
             }
         }
@@ -51,15 +51,18 @@ public class Read {
 
     }
 
-    public void yearContains(){
+
+    public void yearContains() throws FileNotFoundException {
+
+       Scanner scanMembersInfo = new Scanner(new FileReader("MembersInfo.txt"));
 
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Indtast årstal du vil se hvornår medlemmer sidst har betalt");
         String userInput = keyboard.nextLine();
 
-        while(scanner.hasNext()) {
+        while(scanMembersInfo.hasNext()) {
 
-            String keyword = scanner.nextLine();
+            String keyword = scanMembersInfo.nextLine();
 
             if(keyword.contains(userInput)) {
                 System.out.println(keyword);
@@ -68,68 +71,6 @@ public class Read {
 
         }
 
-    } public void updateResults() throws IOException {
-
-
-        System.out.println("Skriv navnet på ham/hende du vil opdaterer svømmetider for");
-
-        Scanner keyboard = new Scanner(System.in);
-        Scanner key2 = new Scanner(System.in);
-        String userInput = keyboard.nextLine();
-
-        while (scanner.hasNext()) {
-
-            String keyword = scanner.nextLine();
-
-            if (keyword.contains(userInput))
-            {
-
-                System.out.println("Indtast svømmeresultater på " + userInput);
-                swimResults = key2.nextDouble();
-
-
-
-//
-//                ArrayList<Elitesvømmere> elite = new ArrayList<>();
-//                elite.add(new Elitesvømmere(userInput, swimResults));
-
-            }
-
-
-
-
-             //  defineTop5();
-
-
-
-
-
-            }
-
-        }
-
-
-
-
-    public void defineTop5() throws FileNotFoundException {
-
-        /*
-        Scanner top5 = new Scanner(new File("Eliteswimmers.txt"));
-
-        System.out.println("Listen over top 5: " + "\n");
-
-     while (top5.hasNext()) {
-
-         ArrayList<String> lines = new ArrayList<>();
-         String line = top5.nextLine();
-         lines.add(line);
-         Collections.sort(lines);
-         System.out.println(lines);
-
-     }*/
-
-
     }
-
 
 }
