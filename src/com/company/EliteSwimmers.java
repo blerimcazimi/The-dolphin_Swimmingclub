@@ -10,15 +10,15 @@ import java.util.Scanner;
  */
 public class EliteSwimmers extends  MembersInformation{
 
-    public EliteSwimmers(String name, int age, String type, String membershipAc, String cpr, Date d, double swimresult) {
+    public EliteSwimmers(String name, int age, String type, String membershipAc, String cpr, Date d, String swimresult) {
         super(name, age, type, membershipAc, cpr, d);
         this.Swimresult = swimresult;
     }
 
-    public double getSwimresult() {
+    public String getSwimresult() {
         return Swimresult;
     }
 
-    private double Swimresult;
+    private String Swimresult;
 
 }

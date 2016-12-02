@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-CPR: Aktivt Navn: Palle.  Alder: 33 år  Medlemstype:  Standard medlemskab. Medlemsaktivitet: 123124. Oprettet: Thu Dec 01 11:20:18 CET 2016
-=======
-
-CPR: Aktivt Navn: Danny.  Alder: 15 år  Medlemstype:  Standard medlemskab. Medlemsaktivitet: 1308960117. Oprettet: Thu Dec 01 11:22:30 CET 2016
- 
- 
->>>>>>> origin/master
+CPR: 22 Navn: thom.  Alder: 33 år  Medlemstype:  Standard medlemskab. Medlemsaktivitet: Passiv. Oprettet: Fri Dec 02 11:29:50 CET 2016
  
