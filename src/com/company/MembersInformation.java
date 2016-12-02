@@ -30,7 +30,6 @@ public class MembersInformation {
         return memberName;
     }
 
-
     public String getMembershipActivity() {
           return membershipActivity;
          }

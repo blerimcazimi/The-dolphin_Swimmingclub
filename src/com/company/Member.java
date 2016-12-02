@@ -1,8 +1,8 @@
 package com.company;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -15,9 +15,109 @@ public class  Member
     private Date date = new Date();
 
 
-    public void deleteMember()
+    public void getList()
+    {
+
+        try
+        {
+
+            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+
+            String lines = ""; //holds the lines of file.
+
+            //loop through all lines.
+            String line;
+
+            ArrayList<Integer> lister = new ArrayList<Integer>();
+
+            while ((line = br.readLine()) != null)
+            {
+
+                String[] getOld = line.split("Alder: ");
+                getOld = getOld[1].split(" år"); //now we can output old by getOld[0]...
+
+                int getOlds = Integer.parseInt(getOld[0]);
+
+                if(18 > getOlds)
+                {
+                    //System.out.println("1000 kr");
+                    lister.add(1000);
+                } else if(getOlds >= 18 && 60 > getOlds)
+                {
+                    //System.out.println("1600 kr");
+                    lister.add(1600);
+                } else {
+                    //System.out.println("1200 kr");
+                    lister.add(1200);
+                }
+
+                //System.out.println(line);
+
+            }
+
+
+            Collections.sort(lister);
+
+            for(int i = 0; lister.size() > i; i++)
+            {
+                System.out.println(lister.get(i));
+            }
+
+
+        } catch(IOException Exception)
+        {
+            System.out.println("Something went wrong, when we tried to replace.");
+        }
+
+
+    }
+
+    public void deleteMember() throws FileNotFoundException
     {
         //code for deleting a member.
+
+        System.out.println("Slet et medlem ved at indtaste cpr nr.");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Read r = new Read();
+
+        String slet = scanner.nextLine();
+        String delete = r.specificKeyword(slet);
+
+        boolean runSearch = true;
+        if(delete.equals(""))
+        {
+            System.out.println("Søgningen gav ikke nogen resultater");
+            runSearch = false;
+        } else {
+
+            System.out.println("Det ønskede medlem blev fundet i datatbasen:");
+            System.out.println(delete);
+
+        }
+
+        File file = new File("MembersInfo");
+
+        while(runSearch){
+            System.out.println("Er du sikker på nat du vil slette dette medlem?");
+            System.out.println("Tast 'ja' eller 'nej'");
+
+            if(scanner.next().equals("nej")){
+                break;
+            }else if(scanner.next().equals("ja")){
+
+
+                file.replaceWith(delete, " ", slet);
+
+                System.out.println("Medlem slettet");
+                break;
+            }
+
+        }
+
+
+
     }
 
     public void createMember() throws IOException
