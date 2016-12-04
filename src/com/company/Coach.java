@@ -75,8 +75,8 @@ public class Coach
     public void getEliteSwimmers() throws IOException
     {
 
-        String youngSwimmers = ""; //holds list of swimmers below 18.
-        String oldSwimmers = ""; //holds a list of swimmers over 18.
+        String eliteSwimmers = ""; //holds list of swimmers below 18.
+        String juniorSwimmers = ""; //holds a list of swimmers over 18.
 
         //all our member information is stored into the file.
         BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
@@ -93,20 +93,20 @@ public class Coach
 
             if(getOlds >= 18)
             {
-                oldSwimmers += line;
+                eliteSwimmers += line;
             } else {
-                youngSwimmers += line;
+                juniorSwimmers += line;
             }
 
         }
 
         //printing the swimmers out.
-        System.out.println("Elitesvømmere som er 18+");
-        System.out.println(oldSwimmers);
+        System.out.println("Elitesvømmere (18+)");
+        System.out.println(eliteSwimmers);
 
         System.out.println("");
-        System.out.println("Elitesvømmere som er under 18 år");
-        System.out.println(youngSwimmers);
+        System.out.println("Junior team (below 18)");
+        System.out.println(juniorSwimmers);
 
     }
 

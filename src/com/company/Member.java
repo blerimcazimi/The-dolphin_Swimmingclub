@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.IOException;
 import java.util.*;
-import java.io.*;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -58,8 +57,6 @@ public class Member
 
         }
 
-
-
     }
 
     public void createMember() throws IOException
@@ -101,7 +98,6 @@ public class Member
 
 
                 membersInfo.add(new MembersInformation(membersName, memberAge, memberType, cpr, date));
-
 
                 //Putting all the added members from our arraylist into the file.
                 for (int i = 0; i < membersInfo.size(); i++)
