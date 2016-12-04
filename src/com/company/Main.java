@@ -1,5 +1,6 @@
 package com.company;
 
+
 import java.io.IOException;
 
 public class Main {
@@ -9,9 +10,6 @@ public class Main {
 
 
         Member member = new Member();
-
-        //member.getList();
-
         member.login();
 
 

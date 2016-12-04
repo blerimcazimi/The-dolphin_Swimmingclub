@@ -7,75 +7,16 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.Date;
 
-public class  Member
+public class Member
 {
 
     private ArrayList<MembersInformation> membersInfo = new ArrayList<>();
-    private ArrayList<EliteSwimmers> membersInfoElite = new ArrayList<>();
     private Date date = new Date();
 
-
-    public void getList()
-    {
-
-        try
-        {
-
-            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
-
-            String lines = ""; //holds the lines of file.
-
-            //loop through all lines.
-            String line;
-
-            ArrayList<Integer> lister = new ArrayList<Integer>();
-
-            while ((line = br.readLine()) != null)
-            {
-
-                String[] getOld = line.split("Alder: ");
-                getOld = getOld[1].split(" år"); //now we can output old by getOld[0]...
-
-                int getOlds = Integer.parseInt(getOld[0]);
-
-                if(18 > getOlds)
-                {
-                    //System.out.println("1000 kr");
-                    lister.add(1000);
-                } else if(getOlds >= 18 && 60 > getOlds)
-                {
-                    //System.out.println("1600 kr");
-                    lister.add(1600);
-                } else {
-                    //System.out.println("1200 kr");
-                    lister.add(1200);
-                }
-
-                //System.out.println(line);
-
-            }
-
-
-            Collections.sort(lister);
-
-            for(int i = 0; lister.size() > i; i++)
-            {
-                System.out.println(lister.get(i));
-            }
-
-
-        } catch(IOException Exception)
-        {
-            System.out.println("Something went wrong, when we tried to replace.");
-        }
-
-
-    }
 
     public void deleteMember() throws FileNotFoundException
     {
         //code for deleting a member.
-
         System.out.println("Slet et medlem ved at indtaste cpr nr.");
 
         Scanner scanner = new Scanner(System.in);
@@ -99,14 +40,15 @@ public class  Member
 
         File file = new File("MembersInfo");
 
-        while(runSearch){
+        while(runSearch)
+        {
             System.out.println("Er du sikker på nat du vil slette dette medlem?");
             System.out.println("Tast 'ja' eller 'nej'");
 
             if(scanner.next().equals("nej")){
                 break;
-            }else if(scanner.next().equals("ja")){
-
+            } else if(scanner.next().equals("ja"))
+            {
 
                 file.replaceWith(delete, " ", slet);
 
@@ -124,7 +66,6 @@ public class  Member
     {
 
         File file = new File("MembersInfo");
-        int Type;
 
         Scanner keyboard = new Scanner(System.in);
         while (true)
@@ -158,81 +99,31 @@ public class  Member
                     break;
             }
 
-            System.out.println("Vælg medlemskabstype: ");
-            System.out.println("Vælg 1: for standart medlemskab\n2 for elitesvømmer medlemskab");
-            Type = Integer.parseInt(keyboard.nextLine());
-            double test = 0.0;
 
-            switch (Type)
-            {
+                membersInfo.add(new MembersInformation(membersName, memberAge, memberType, cpr, date));
 
-                case 1:
 
-                    membersInfo.add(new MembersInformation(membersName, memberAge, " Standard medlemskab", cpr, memberType, date));
+                //Putting all the added members from our arraylist into the file.
+                for (int i = 0; i < membersInfo.size(); i++)
+                {
+
+                    file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
+                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + "\n \n");
+
+                }
+
+                System.out.println("Vil du tilføje et nyt medlem (Y/N)?");
+
+                String cont = keyboard.nextLine();
+
+                if (cont.equalsIgnoreCase("N"))
+                {
                     break;
-
-                case 2:
-                    membersInfoElite.add(new EliteSwimmers(membersName, memberAge, "Elitesvømmer", "18", cpr, date, 0.0));
-                    break;
-            }
-
-
-
-        //Putting all the added members from our arraylist into the file.
-
-        if(Type==1) {
-
-            for (int i = 0; i < membersInfo.size(); i++) {
-
-                file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                        + membersInfo.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfo.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfo.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
-
+                }
 
             }
 
-        }
-
-        else if(Type ==2) {
-
-            File eliteSwimmerFile = new File("Eliteswimmers");
-
-            for (int i = 0; i < membersInfo.size(); i++) {
-
-                eliteSwimmerFile.writeToFile("CPR: " + membersInfoElite.get(i).getMemberCpr() + " Navn: " + membersInfoElite.get(i).getMemberName() + ".  Alder: "
-                        + membersInfoElite.get(i).getMemeberAge() + " år " + " Medlemstype: " + membersInfoElite.get(i).getMembershipType() + ". Medlemsaktivitet: " + membersInfoElite.get(i).getMembershipActivity() + ". Oprettet: " + date + "\n \n");
-
-
-            }
-
-
-        }
-
-            System.out.println("Vil du tilføje et nyt medlem (Y/N)?");
-
-            String cont = keyboard.nextLine();
-
-            if (cont.equalsIgnoreCase("N"))
-            {
-                break;
-            }
-
-        }
-
-    } // end of createMember
-
-
-    //get list of coaches.
-    public void coach() throws FileNotFoundException
-    {
-
-        System.out.println("Liste over elitesvømmere:");
-
-        Read r = new Read();
-        r.specificKeyword("Elitesvømmer");
-
-
-
-    }
+        }// end of createMember
 
     //edit member
     public void editMember() throws FileNotFoundException
@@ -292,7 +183,6 @@ public class  Member
 
                 file.replaceWith(getOld[0], scanner.next() + " år ", cpr);
 
-
             }
 
             System.out.println("Vil du ændre medlemmets CPR nr?");
@@ -320,13 +210,9 @@ public class  Member
 
     }
 
-    public void top5swimmers(){
-
-    }
-
-
     //login to system
-    public void login() throws IOException {
+    public void login() throws IOException
+    {
 
         Read read = new Read();
 
@@ -370,7 +256,6 @@ public class  Member
                         if (ans.equalsIgnoreCase("Y"))
                         {
                             read.returnfile();
-                            read.returnEliteSwimmers();
 
                         }
 
@@ -379,7 +264,7 @@ public class  Member
                     case 2:
 
                         read.returnfile();
-                        read.returnEliteSwimmers();
+
                         break;
 
                     case 3:
@@ -405,11 +290,14 @@ public class  Member
 
                 int whatToSee = Integer.parseInt(scanner.nextLine());
 
+                Treasurer treasurer = new Treasurer();
+
                 switch (whatToSee)
                 {
 
                     case 1:
-                        read.returnfile();
+
+                        treasurer.getFeesList();
                         break;
 
                     case 2:
@@ -425,23 +313,31 @@ public class  Member
             } else if (email.equals("12") && password.equals("32"))
             {
 
+                //create new object of Coach.
+                Coach coach = new Coach();
+
                 System.out.println("Du er logget ind som træner");
                 System.out.println();
 
                 System.out.println("Tryk 1 for at se liste over alle elite svømmere");
                 System.out.println("Tryk 2 for at se definere hvem der er top 5");
+                System.out.println("Tryk 3 for at opdatere resultater for en svømmer");
                 String userAns = scanner.nextLine();
 
-
-                if (userAns.equalsIgnoreCase("1"))
-                {
-                    coach();
-                } else if (userAns.equalsIgnoreCase("2"))
+                //logic handler.
+                if (userAns.equals("1"))
                 {
 
-                    coach();
-                    read.updateResults();
+                    coach.getEliteSwimmers();
 
+                } else if (userAns.equals("2"))
+                {
+
+                    coach.getBestSwimmers();
+
+                } else if(userAns.equals("3"))
+                {
+                    coach.updateResult();
                 }
 
                 break; //stops the while-loop
@@ -455,4 +351,3 @@ public class  Member
 
         }
     }
-

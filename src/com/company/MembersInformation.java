@@ -8,16 +8,14 @@ public class MembersInformation {
     private String memberName;
     private int memeberAge;
     private Date date;
-    private String membershipActivity;
     private String membershipType;
     private String membersCpr;
 
-    public MembersInformation(String name, int age, String type, String membershipAc, String cpr, Date d)
+    public MembersInformation(String name, int age, String type, String cpr,  Date d)
     {
         this.memberName = name;
         this.memeberAge = age;
         this.membershipType = type;
-        this.membershipActivity = membershipAc;
         this.membersCpr = cpr;
         this.date = d;
     }
@@ -30,15 +28,10 @@ public class MembersInformation {
         return memberName;
     }
 
-    public String getMembershipActivity() {
-          return membershipActivity;
-         }
-
     public String getMembershipType() {
         return membershipType;
     }
 
     public String getMemberCpr() { return membersCpr; }
-
 
 }
