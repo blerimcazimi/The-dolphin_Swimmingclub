@@ -63,7 +63,8 @@ public class Coach
 
             }
 
-        } catch (IOException Ex) {
+        } catch (IOException Ex)
+        {
             System.out.println("Kunne ikke læse filen..");
         }
 
