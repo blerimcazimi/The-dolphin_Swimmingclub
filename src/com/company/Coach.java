@@ -46,7 +46,8 @@ public class Coach
 
             }
 
-            Collections.sort(recordsToSort); //sorting all elements in our arraylist using Quicksort.
+            //sorting all elements in our arraylist using Quicksort.
+            Collections.sort(recordsToSort);
 
             //the elements is now sorted, we're now iterating through dem, and using System out, to display them.
             for (int i = 0; recordsToSort.size() > i; i++)
