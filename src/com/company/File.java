@@ -57,16 +57,11 @@ public class File {
     public void writeToFile(String s) throws IOException
     {
 
-        //only create a new file, if it does not exist.
-        if(!file.exists())
-        {
-            file.createNewFile();
-        }
-
         FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.append(s);
         bufferedWriter.close();
+        
     }
 
 }
