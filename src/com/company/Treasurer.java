@@ -3,15 +3,79 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Treasurer
-{
+    {
 
     /**
-    * Displays a list of all members, that has fallen back with payment.
+        * Displays a list of all members, that has fallen back with payment.
      */
     public void getFallenBack()
     {
+        try
+        {
+
+            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+
+            String line;
+
+            //using date to find who is fallen behind.
+            Date date = new Date();
+
+            //format of date, e.g. 2016-12-01.
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            //getting todays date.
+            String today = dateFormat.format(date);
+
+            //display todays date.
+            System.out.println("todays date");
+            System.out.println(today);
+
+            System.out.println("");
+
+            try
+            {
+
+                //the payment date..
+                String target = "2016-01-12";
+
+                //parsing string into date-type.
+                Date result = dateFormat.parse(target);
+
+
+                //output.
+                System.out.println(result);
+
+            } catch(ParseException exception)
+            {
+                System.out.println("error.");
+            }
+
+            System.out.println("iterate..");
+            //iterate through all members.
+            while ((line = br.readLine()) != null)
+            {
+
+                String[] getPaymentDate = line.split("Betalingsdato: ");
+
+                if(getPaymentDate.length > 1)
+                {
+
+                    System.out.println(getPaymentDate[1]);
+
+                }
+
+            }
+
+        } catch (IOException exception)
+        {
+            System.out.println("Could not open file...");
+        }
 
     }
 

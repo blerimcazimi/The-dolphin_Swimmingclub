@@ -280,7 +280,7 @@ public class Member
             } else if (email.equals("123") && password.equals("321"))
             {
 
-                System.out.println("du er kasser");
+                System.out.println("Du er logget på som kasser.");
                 System.out.println("Tryk 1 for at se liste over alle medlemmer");
                 System.out.println("Tryk 2 for at se om nogen er bagud med betaling.");
 
@@ -297,14 +297,11 @@ public class Member
                         break;
 
                     case 2:
-                        read.yearContains();
+
+                        treasurer.getFallenBack();
                         break;
 
                 }
-
-
-                break; //stops the while-loop
-
 
             } else if (email.equals("12") && password.equals("32"))
             {
