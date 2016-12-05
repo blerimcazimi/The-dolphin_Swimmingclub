@@ -6,43 +6,36 @@ import java.util.*;
 public class Read {
 
 
+    private Scanner scanner = new Scanner(new FileReader("MembersInfo.txt"));
 
 
-    public void returnfile (String s) throws FileNotFoundException {
+    public Read() throws FileNotFoundException
+    {
 
-        Scanner scanner = new Scanner(new FileReader(s));
+    }
+
+    public void returnfile ()
+    {
 
         while (scanner.hasNext())
         {
             System.out.println(scanner.nextLine());
         }
 
-
-    }
-
-    public String returnTop5file(String s) throws FileNotFoundException {
-
-        Scanner scanner = new Scanner(new FileReader(s));
-
-        while (scanner.hasNext())
-        {
-          return scanner.nextLine();
-        }
-
-return "";
     }
 
 
-    public String specificKeyword(String keywordToFind, String fileName) throws FileNotFoundException {
-
-        Scanner scanner = new Scanner(new FileReader(fileName));
+    public String specificKeyword(String keywordToFind)
+    {
+        //System.out.println("Indtast keyword");
 
         while (scanner.hasNext())
         {
             String keyword = scanner.nextLine();
             if(keyword.contains(keywordToFind))
             {
-
+                //System.out.println("found:");
+                //System.out.println(keyword);
                 return keyword;
             }
         }
@@ -51,18 +44,15 @@ return "";
 
     }
 
-
-    public void yearContains() throws FileNotFoundException {
-
-       Scanner scanMembersInfo = new Scanner(new FileReader("MembersInfo.txt"));
+    public void yearContains(){
 
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Indtast årstal du vil se hvornår medlemmer sidst har betalt");
         String userInput = keyboard.nextLine();
 
-        while(scanMembersInfo.hasNext()) {
+        while(scanner.hasNext()) {
 
-            String keyword = scanMembersInfo.nextLine();
+            String keyword = scanner.nextLine();
 
             if(keyword.contains(userInput)) {
                 System.out.println(keyword);
@@ -72,5 +62,6 @@ return "";
         }
 
     }
+
 
 }

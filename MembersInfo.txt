@@ -1,2 +1,4 @@
-CPR: 22 Navn: thom.  Alder: 33 år  Medlemstype:  Standard medlemskab. Medlemsaktivitet: Passiv. Oprettet: Fri Dec 02 11:29:50 CET 2016
+CPR: 15 Navn: blerim.  Alder: 20 år  Medlemsaktivitet: Passiv Oprettet: Sun Dec 04 22:15:53 CET 2016
+
+CPR: 1801961157 Navn: henrik.  Alder: 25 år  Medlemsaktivitet: Passiv Oprettet: Sun Dec 04 22:15:53 CET 2016
  
