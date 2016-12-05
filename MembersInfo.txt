@@ -4,3 +4,7 @@ CPR: 1801961157 Navn: henrik.  Alder: 25 år  Medlemsaktivitet: Passiv Oprettet:
  
 CPR: 33333 Navn: blerim.  Alder: 25 år  Medlemsaktivitet: Aktivt Oprettet: Mon Dec 05 08:50:11 CET 2016 Betalingsdato: 2016-12-01
  
+CPR: 1801961157 Navn: lars.  Alder: 35 år  Medlemsaktivitet: Aktivt Oprettet: Mon Dec 05 10:22:24 CET 2016 Betalingsdato: Tue Jan 10 22:22:45 CET 2017
+CPR: 999 Navn: lars.  Alder: 64 år  Medlemsaktivitet: Aktivt Oprettet: Mon Dec 05 10:23:10 CET 2016 Betalingsdato: 2017-01-10+
+CPR: 1801 Navn: blerim.  Alder: 25 år  Medlemsaktivitet: Aktivt Oprettet: Mon Dec 05 10:31:00 CET 2016 Betalingsdato: 2017-12-05
+CPR: 95 Navn: blerim.  Alder: 26 år  Medlemsaktivitet: Aktivt Oprettet: Mon Dec 05 10:31:30 CET 2016 Betalingsdato: 2017-12-05
