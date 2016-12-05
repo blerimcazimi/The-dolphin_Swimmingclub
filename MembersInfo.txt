@@ -1,4 +1,4 @@
-CPR: 15 Navn: blerim.  Alder: 20 år  Medlemsaktivitet: Passiv Oprettet: Sun Dec 04 22:15:53 CET 2016 Betalingsdato: 2016-12-07
+CPR: 15 Navn: blerim. Alder: 20 år  Medlemsaktivitet: Passiv Oprettet: Sun Dec 04 22:15:53 CET 2016 Betalingsdato: 2016-12-07
 
 CPR: 1801961157 Navn: henrik.  Alder: 25 år  Medlemsaktivitet: Passiv Oprettet: Sun Dec 04 22:15:53 CET 2016 Betalingsdato: 2016-12-06
  

@@ -3,6 +3,8 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,40 +25,9 @@ public class Treasurer
 
             String line;
 
-            //using date to find who is fallen behind.
-            Date date = new Date();
+            //get current timestamp (amount of seconds since 1980 till now).
+            long currentTimestamp = (System.currentTimeMillis() / 1000);
 
-            //format of date, e.g. 2016-12-01.
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-            //getting todays date.
-            String today = dateFormat.format(date);
-
-            //display todays date.
-            System.out.println("todays date");
-            System.out.println(today);
-
-            System.out.println("");
-
-            try
-            {
-
-                //the payment date..
-                String target = "2016-01-12";
-
-                //parsing string into date-type.
-                Date result = dateFormat.parse(target);
-
-
-                //output.
-                System.out.println(result);
-
-            } catch(ParseException exception)
-            {
-                System.out.println("error.");
-            }
-
-            System.out.println("iterate..");
             //iterate through all members.
             while ((line = br.readLine()) != null)
             {
@@ -66,7 +37,25 @@ public class Treasurer
                 if(getPaymentDate.length > 1)
                 {
 
-                    System.out.println(getPaymentDate[1]);
+                    //converting payment date to timestamp.
+                    String paymentDate = getPaymentDate[1] + " 00:00:00"; // (the timestamp object requires hour, minutes and secounds).
+
+                    //convert string to timestamp
+                    Timestamp time = Timestamp.valueOf(paymentDate);
+
+                    //convert timestamp milli seconds to secounds.
+                    long paymentTimestamp = (time.getTime() / 1000);
+
+                    //current timestamp is greater than paymentTimestamp (the member has fallen behind).
+                    if(currentTimestamp > paymentTimestamp)
+                    {
+
+                        String[] getName = line.split("Navn: ");
+                        getName = getName[1].split(" Alder:"); //now we can output name by getName[0]...
+
+                        System.out.println(getName[0] + " er bagud med betalingen. Betalingsdato: " + getPaymentDate[1]);
+
+                    }
 
                 }
 
