@@ -128,8 +128,7 @@ public class Treasurer
                 }
 
             }
-
-
+            
         } catch(IOException Exception)
         {
             System.out.println("Something went wrong, when we tried to get a list.");
