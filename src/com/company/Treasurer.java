@@ -57,7 +57,12 @@ public class Treasurer
                     getMembership = getMembership[1].split(" Oprettet:");
 
                     //the logic handler for their fee.
-                    if (18 > getAges)
+                    if(getMembership[0].equals("Passiv"))
+                    {
+
+                        System.out.print("500 kr");
+
+                    } else if (18 > getAges)
                     {
                         System.out.print("1000 kr");
                     } else if (getAges >= 18 && 60 > getAges)
