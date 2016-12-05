@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import java.io.FileNotFoundException;
@@ -103,8 +104,27 @@ public class Member
                 for (int i = 0; i < membersInfo.size(); i++)
                 {
 
+                    //timestamp in seconds.
+                    long currentTimestamp = (System.currentTimeMillis() / 1000);
+
+                    //there is 86400 seconds in a day (24 hour * 60 minutes * 60 seconds).
+                    long secondsPerDay = 86400;
+
+                    //seconds per year.
+                    long secondsPerYear = secondsPerDay * 365;
+
+                    //add one years timestamp to current timestamp
+                    long nextYearTimestamp = secondsPerYear + currentTimestamp;
+
+                    //convert timestamp to date. Notice: we convert the timestamp from seconds to MS again.
+                    Date nextPaymentDate = new Date(nextYearTimestamp * 1000);
+
+                    //converting the date format to yyyy-MM-dd
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+                    //write to file.
                     file.writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + "\n \n");
+                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + " Betalingsdato: " + sdf.format(nextPaymentDate) + "\n");
 
                 }
 
@@ -280,7 +300,7 @@ public class Member
             } else if (email.equals("123") && password.equals("321"))
             {
 
-                System.out.println("du er kasser");
+                System.out.println("Du er logget på som kasser.");
                 System.out.println("Tryk 1 for at se liste over alle medlemmer");
                 System.out.println("Tryk 2 for at se om nogen er bagud med betaling.");
 
@@ -297,14 +317,11 @@ public class Member
                         break;
 
                     case 2:
-                        read.yearContains();
+
+                        treasurer.getFallenBack();
                         break;
 
                 }
-
-
-                break; //stops the while-loop
-
 
             } else if (email.equals("12") && password.equals("32"))
             {

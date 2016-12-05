@@ -130,7 +130,7 @@ public class Coach
         File Records = new File("Records");
 
         //all eliteswimmers is stored in the EliteSwimmers.txt file.
-        BufferedReader eliteSwimmers = new BufferedReader(new FileReader("Eliteswimmers.txt"));
+        BufferedReader eliteSwimmers = new BufferedReader(new FileReader("MembersInfo.txt"));
 
         //iterate through eliteswimmers.
         while ((line = eliteSwimmers.readLine()) != null)

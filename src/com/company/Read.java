@@ -44,24 +44,4 @@ public class Read {
 
     }
 
-    public void yearContains(){
-
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast årstal du vil se hvornår medlemmer sidst har betalt");
-        String userInput = keyboard.nextLine();
-
-        while(scanner.hasNext()) {
-
-            String keyword = scanner.nextLine();
-
-            if(keyword.contains(userInput)) {
-                System.out.println(keyword);
-                System.out.println();
-            }
-
-        }
-
-    }
-
-
 }

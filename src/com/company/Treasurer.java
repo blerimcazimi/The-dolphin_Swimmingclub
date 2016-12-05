@@ -3,15 +3,64 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 public class Treasurer
-{
+    {
 
     /**
-    * Displays a list of all members, that has fallen back with payment.
+        * Displays a list of all members, that has fallen back with payment.
      */
     public void getFallenBack()
     {
+
+        try
+        {
+
+            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+
+            String line;
+
+            //get current timestamp (amount of seconds since 1980 till now).
+            long currentTimestamp = (System.currentTimeMillis() / 1000);
+
+            //iterate through all members.
+            while ((line = br.readLine()) != null)
+            {
+
+                String[] getPaymentDate = line.split("Betalingsdato: ");
+
+                if(getPaymentDate.length > 1)
+                {
+
+                    //converting payment date to timestamp.
+                    String paymentDate = getPaymentDate[1] + " 00:00:00"; // (the timestamp object requires hour, minutes and secounds).
+
+                    //convert string to timestamp
+                    Timestamp time = Timestamp.valueOf(paymentDate);
+
+                    //convert timestamp milli seconds to secounds.
+                    long paymentTimestamp = (time.getTime() / 1000);
+
+                    //current timestamp is greater than paymentTimestamp (the member has fallen behind).
+                    if(currentTimestamp > paymentTimestamp)
+                    {
+
+                        String[] getName = line.split("Navn: ");
+                        getName = getName[1].split(" Alder:"); //now we can output name by getName[0]...
+
+                        System.out.println(getName[0] + " er bagud med betalingen. Betalingsdato: " + getPaymentDate[1]);
+
+                    }
+
+                }
+
+            }
+
+        } catch (IOException exception)
+        {
+            System.out.println("Could not open file...");
+        }
 
     }
 
