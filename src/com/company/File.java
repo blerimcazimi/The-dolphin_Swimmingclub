@@ -13,7 +13,6 @@ public class File {
         file = new java.io.File(filename.concat(".txt"));
     }
 
-
     /**
      * This method allows us to read a .txt file using BufferReader.
      * @return BufferReader br
@@ -50,7 +49,6 @@ public class File {
         }
 
     }
-
 
     /**
      * This method finds a line where the keywordToFind is contained.

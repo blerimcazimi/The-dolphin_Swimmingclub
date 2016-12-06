@@ -1,8 +1,6 @@
 package com.company;
 
-
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -84,7 +82,8 @@ public class Coach extends File
 
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
-        while ((line = file.readFile().readLine()) != null)
+        BufferedReader br = readFile();
+        while ((line = br.readLine()) != null)
         {
 
             //getting the age of member.
@@ -131,7 +130,8 @@ public class Coach extends File
 
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
-        while ((line = file.readFile().readLine()) != null)
+        BufferedReader br = readFile();
+        while ((line = br.readLine()) != null)
         {
 
             //does line contain the input?
