@@ -45,7 +45,7 @@ public class Member extends File
 
             while (runSearch)
             {
-                System.out.println("Er du sikker på nat du vil slette dette medlem?");
+                System.out.println("Er du sikker på at du vil slette dette medlem?");
                 System.out.println("Tast 'ja' eller 'nej'");
 
                 if (scanner.next().equals("nej"))
@@ -65,7 +65,7 @@ public class Member extends File
 
         } catch(IOException EX)
         {
-            System.out.println("Could not open...");
+            System.out.println("Fil ikke fundet");
         }
 
     }
@@ -77,11 +77,11 @@ public class Member extends File
         while (true)
         {
 
-            System.out.print("Indtast navn på nye medlem: ");
+            System.out.print("Indtast navn på det nye medlem: ");
             String membersName = keyboard.nextLine();
 
             System.out.println();
-            System.out.print("Indtast alder på nye medlem: ");
+            System.out.print("Indtast alder på det nye medlem: ");
             int memberAge = Integer.parseInt(keyboard.nextLine());
 
             System.out.print("Indtast CPR nummer: ");
@@ -89,7 +89,7 @@ public class Member extends File
 
             System.out.println();
             System.out.println("Vælg medlemets fortrukne aktivitet");
-            System.out.println("Vælg 1: for aktivt medlemskab\n2 for passivt medlemskab");
+            System.out.println("Vælg \n1: for aktivt medlemskab\n2: for passivt medlemskab");
             String memberType = "";
             int memberTypeSwitch = Integer.parseInt(keyboard.nextLine());
             switch (memberTypeSwitch)
@@ -132,7 +132,7 @@ public class Member extends File
 
                     //write to file.
                     writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + " Betalingsdato: " + sdf.format(nextPaymentDate) + "\n");
+                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + " Betalingsdato: " + sdf.format(nextPaymentDate));
 
                 }
 
@@ -153,7 +153,7 @@ public class Member extends File
     public void editMember() throws FileNotFoundException
     {
 
-        System.out.println("Indtast CPR-nr på det medlem du vil redigere i");
+        System.out.println("Indtast CPR-nr på det medlem, du vil redigere");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -227,7 +227,7 @@ public class Member extends File
 
         } catch(IOException ex)
         {
-            System.out.println("Error...");
+            System.out.println("Fil ikke fundet");
         }
 
 

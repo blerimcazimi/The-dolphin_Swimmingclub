@@ -88,14 +88,17 @@ public class Coach extends File
 
             //getting the age of member.
             String[] getOld = line.split("Alder: ");
-            getOld = getOld[1].split(" år");
-            int getOlds = Integer.parseInt(getOld[0]);
 
-            if(getOlds >= 18)
+            if(getOld.length > 1)
             {
-                eliteSwimmers += line;
-            } else {
-                juniorSwimmers += line;
+                getOld = getOld[1].split(" år");
+                int getOlds = Integer.parseInt(getOld[0]);
+
+                if (getOlds >= 18) {
+                    eliteSwimmers += line + "\r\n";
+                } else {
+                    juniorSwimmers += line + "\r\n";
+                }
             }
 
         }
@@ -117,7 +120,7 @@ public class Coach extends File
     public void updateResult() throws IOException
     {
 
-        System.out.println("Skriv CPR på den bruger du vil opdaterer svømmetider for");
+        System.out.println("Skriv CPR på det medlem, du vil opdaterer svømmetider på");
 
         Scanner keyboard = new Scanner(System.in);
         String userInput = keyboard.nextLine();

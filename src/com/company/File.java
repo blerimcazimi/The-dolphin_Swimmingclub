@@ -109,7 +109,7 @@ public class File {
 
         } catch(IOException Exception)
         {
-            System.out.println("Something went wrong, when we tried to replace.");
+            System.out.println("Metoden fejlede" + Exception);
         }
 
     }
@@ -120,6 +120,7 @@ public class File {
         FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.append(s);
+        bufferedWriter.newLine();
         bufferedWriter.close();
 
     }
