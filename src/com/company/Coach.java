@@ -82,7 +82,7 @@ public class Coach extends File
 
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
-        BufferedReader br = readFile();
+        BufferedReader br = file.readFile();
         while ((line = br.readLine()) != null)
         {
 
