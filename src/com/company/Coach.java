@@ -88,14 +88,17 @@ public class Coach extends File
 
             //getting the age of member.
             String[] getOld = line.split("Alder: ");
-            getOld = getOld[1].split(" år");
-            int getOlds = Integer.parseInt(getOld[0]);
 
-            if(getOlds >= 18)
+            if(getOld.length > 1)
             {
-                eliteSwimmers += line;
-            } else {
-                juniorSwimmers += line;
+                getOld = getOld[1].split(" år");
+                int getOlds = Integer.parseInt(getOld[0]);
+
+                if (getOlds >= 18) {
+                    eliteSwimmers += line + "\r\n";
+                } else {
+                    juniorSwimmers += line + "\r\n";
+                }
             }
 
         }
