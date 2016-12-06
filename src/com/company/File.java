@@ -13,6 +13,68 @@ public class File {
         file = new java.io.File(filename.concat(".txt"));
     }
 
+
+    /**
+     * This method allows us to read a .txt file using BufferReader.
+     * @return BufferReader br
+     */
+    public BufferedReader readFile()
+    {
+
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+
+            return br;
+
+        } catch (IOException error)
+        {
+            System.out.println("Kunne ikke læse filen..");
+            return null;
+        }
+
+    }
+
+    /**
+     * Instead of returning lines form a file. This method will just system.out them.
+     */
+    public void systemOutFile() throws IOException
+    {
+        String line;
+        BufferedReader br = readFile();
+        while ((line = br.readLine()) != null)
+        {
+
+            System.out.println(line);
+
+        }
+
+    }
+
+
+    /**
+     * This method finds a line where the keywordToFind is contained.
+     * @param keywordToFind
+     * @return String keyword
+     */
+    public String specificKeyword(String keywordToFind) throws IOException
+    {
+
+        String line;
+        BufferedReader br = readFile();
+        while ((line = br.readLine()) != null)
+        {
+            if(line.contains(keywordToFind))
+            {
+                return line;
+            }
+        }
+
+        return "";
+
+    }
+
+
     /**
         This method allows us to replace a value with a new value in a .txt file.
         @param String CurrentValue, String newValue, String lineMustContain
