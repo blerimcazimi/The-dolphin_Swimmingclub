@@ -124,10 +124,7 @@ public class Coach extends File
 
         //the file we will update.
         File Records = new File("Records");
-
-        //all our member information is stored into the file.
-        File file = new File("MembersInfo");
-
+        
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
         BufferedReader br = readFile();
