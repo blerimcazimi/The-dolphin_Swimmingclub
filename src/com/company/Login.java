@@ -54,7 +54,7 @@ public class Login extends Member
                         if (ans.equalsIgnoreCase("Y"))
                         {
 
-                            File file = new File("MembersInformation");
+                            File file = new File("MembersInfo");
                             file.systemOutFile();
 
                         }
@@ -63,7 +63,7 @@ public class Login extends Member
 
                     case 2:
 
-                        File file = new File("MembersInformation");
+                        File file = new File("MembersInfo");
                         file.systemOutFile();
 
                         break;
