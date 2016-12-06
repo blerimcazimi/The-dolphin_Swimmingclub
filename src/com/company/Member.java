@@ -132,7 +132,7 @@ public class Member extends File
 
                     //write to file.
                     writeToFile("CPR: " + membersInfo.get(i).getMemberCpr() + " Navn: " + membersInfo.get(i).getMemberName() + ".  Alder: "
-                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + " Betalingsdato: " + sdf.format(nextPaymentDate) + "\n");
+                            + membersInfo.get(i).getMemeberAge() + " år " + " Medlemsaktivitet: " + membersInfo.get(i).getMembershipType() + " Oprettet: " + date + " Betalingsdato: " + sdf.format(nextPaymentDate));
 
                 }
 

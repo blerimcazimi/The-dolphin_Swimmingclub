@@ -120,6 +120,7 @@ public class File {
         FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.append(s);
+        bufferedWriter.newLine();
         bufferedWriter.close();
 
     }
