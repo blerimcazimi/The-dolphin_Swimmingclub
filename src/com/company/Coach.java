@@ -11,15 +11,13 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Coach
+public class Coach extends File
 {
-
-    private BufferedReader br;
 
     public Coach() throws IOException
     {
 
-        br = new BufferedReader(new FileReader("Records.txt"));
+        super("Records");
 
     }
 
@@ -38,7 +36,8 @@ public class Coach
 
             //iterate through all records.
             String line;
-            while ((line = br.readLine()) != null)
+
+            while ((line = readFile().readLine()) != null)
             {
 
                 //put the line into the array list.
@@ -81,11 +80,11 @@ public class Coach
         String juniorSwimmers = ""; //holds a list of swimmers over 18.
 
         //all our member information is stored into the file.
-        BufferedReader br = new BufferedReader(new FileReader("MembersInfo.txt"));
+        File file = new File("MembersInfo");
 
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
-        while ((line = br.readLine()) != null)
+        while ((line = file.readFile().readLine()) != null)
         {
 
             //getting the age of member.
@@ -124,16 +123,15 @@ public class Coach
         Scanner keyboard = new Scanner(System.in);
         String userInput = keyboard.nextLine();
 
-        String line;
-
         //the file we will update.
         File Records = new File("Records");
 
-        //all eliteswimmers is stored in the EliteSwimmers.txt file.
-        BufferedReader eliteSwimmers = new BufferedReader(new FileReader("MembersInfo.txt"));
+        //all our member information is stored into the file.
+        File file = new File("MembersInfo");
 
-        //iterate through eliteswimmers.
-        while ((line = eliteSwimmers.readLine()) != null)
+        //iterate through them, where we now seperate the swimmers into two lists.
+        String line;
+        while ((line = file.readFile().readLine()) != null)
         {
 
             //does line contain the input?
