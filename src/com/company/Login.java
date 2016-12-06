@@ -118,7 +118,7 @@ public class Login extends Member
                 System.out.println();
 
                 System.out.println("Tryk 1 for at se liste over alle elite svømmere");
-                System.out.println("Tryk 2 for at se definere hvem der er top 5");
+                System.out.println("Tryk 2 for at se hvem der er top 5");
                 System.out.println("Tryk 3 for at opdatere resultater for en svømmer");
                 String userAns = scanner.nextLine();
 
