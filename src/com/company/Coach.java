@@ -142,6 +142,7 @@ public class Coach extends File
                 Records.writeToFile("\n" + keyboard.nextLine() + " - CPR: " + userInput + " - Dato: " + dateFormat.format(date));
                 System.out.println("Svømmetid gemt.");
 
+                break;
             }
 
         }
