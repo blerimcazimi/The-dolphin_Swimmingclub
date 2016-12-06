@@ -34,8 +34,8 @@ public class Coach extends File
 
             //iterate through all records.
             String line;
-
-            while ((line = readFile().readLine()) != null)
+            BufferedReader br = readFile();
+            while ((line = br.readLine()) != null)
             {
 
                 //put the line into the array list.
@@ -124,7 +124,7 @@ public class Coach extends File
 
         //the file we will update.
         File Records = new File("Records");
-        
+
         //iterate through them, where we now seperate the swimmers into two lists.
         String line;
         BufferedReader br = readFile();
