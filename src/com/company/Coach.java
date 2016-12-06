@@ -117,7 +117,7 @@ public class Coach extends File
     public void updateResult() throws IOException
     {
 
-        System.out.println("Skriv CPR på den bruger du vil opdaterer svømmetider for");
+        System.out.println("Skriv CPR på det medlem, du vil opdaterer svømmetider på");
 
         Scanner keyboard = new Scanner(System.in);
         String userInput = keyboard.nextLine();

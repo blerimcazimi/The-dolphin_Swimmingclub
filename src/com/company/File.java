@@ -109,7 +109,7 @@ public class File {
 
         } catch(IOException Exception)
         {
-            System.out.println("Something went wrong, when we tried to replace.");
+            System.out.println("Metoden fejlede" + Exception);
         }
 
     }
