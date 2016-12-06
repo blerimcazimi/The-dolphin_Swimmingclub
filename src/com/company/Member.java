@@ -174,13 +174,14 @@ public class Member extends File
             }
 
 
-            while (runSearch) {
+            while (runSearch)
+            {
                 System.out.println("Vil du ændre medlemmets navn?");
                 System.out.println("1 for ja, og 2 for nej");
 
-                if (scanner.next().equals("1")) {
+                if (scanner.next().equals("1"))
+                {
                     System.out.println("Indtast navn...");
-
 
                     String[] getName = found.split("Navn: ");
                     getName = getName[1].split("Alder:"); //now we can output name by getName[0]...
