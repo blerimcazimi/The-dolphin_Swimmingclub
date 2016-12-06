@@ -107,6 +107,7 @@ public class Login extends Member
                         break;
 
                 }
+                break;
 
             } else if (email.equals("12") && password.equals("32"))
             {
